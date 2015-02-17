@@ -3,6 +3,10 @@
 salt-minion:
   pkg.installed:
     - name: {{ salt['salt-minion'] }}
+{%- if 'version' pillar['salt']['minion'] %}
+    - version: {{ pillar['salt']['minion']['version'] }}
+    - enablerepo: epel-testing
+{%- endif  %}
   file.recurse:
     - name: {{ salt.get('config-path', '/etc/salt') }}/minion.d
     - template: jinja

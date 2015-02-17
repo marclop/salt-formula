@@ -27,18 +27,19 @@ salt:
       ssl_key: /etc/pki/api/certs/server.key
       debug: False
       disable_ssl: False
- 
+
   # salt minion config:
   minion:
+    version: 2014.7.1
 
     # single master setup
     master: salt
-    
+
     # multi master setup
     master:
       - salt_master_1
       - salt_master_2
-    
+
     fileserver_backend:
       - git
       - roots
