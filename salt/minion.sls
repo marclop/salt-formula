@@ -3,7 +3,7 @@
 salt-minion:
   pkg.installed:
     - name: {{ salt['salt-minion'] }}
-{%- if 'version' pillar['salt']['minion'] %}
+{%- if 'version' in pillar['salt']['minion'] %}
     - version: {{ pillar['salt']['minion']['version'] }}
     - enablerepo: epel-testing
 {%- endif  %}
